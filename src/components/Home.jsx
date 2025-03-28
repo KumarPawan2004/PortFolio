@@ -17,7 +17,7 @@ function Home() {
 
   // Function to handle CV download
   const handleDownloadCV = () => {
-    const cvPath = "/Pawan_Kumar_CV.pdf"; // Ensure the file is inside the public folder
+    const cvPath = "public/Pawan_Kumar_CV.pdf"; // Ensure the file is inside the public folder
     const link = document.createElement("a");
     link.href = cvPath;
     link.download = "Pawan_Kumar_CV.pdf";
