@@ -18,7 +18,7 @@ function Contact() {
       message: data.message,
     };
     try {
-      await axios.post("https://getform.io/f/raeqjora", userInfo);
+      await axios.post("https://getform.io/f/bolmojra", userInfo);
       toast.success("Your message has been sent");
     } catch (error) {
       console.log(error);
@@ -36,8 +36,7 @@ function Contact() {
         <div className=" flex flex-col items-center justify-center mt-5">
           <form
             onSubmit={handleSubmit(onSubmit)}
-            action="https://getform.io/f/bolmojra"
-            method="POST"
+            action="https://getform.io/f/bolmojra" method="POST"
             className="bg-slate-200 w-96 px-8 py-6 rounded-xl"
           >
             <h1 className="text-xl font-semibold mb-4">Send Your Message</h1>
@@ -58,7 +57,7 @@ function Contact() {
               <input
                 {...register("email", { required: true })}
                 className="shadow rounded-lg appearance-none border  py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="email"
+                id="name"
                 name="email"
                 type="text"
                 placeholder="Enter your email address"
@@ -70,7 +69,7 @@ function Contact() {
               <textarea
                 {...register("message", { required: true })}
                 className="shadow rounded-lg appearance-none border  py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="message"
+                id="name"
                 name="message"
                 type="text"
                 placeholder="Enter your Query"
