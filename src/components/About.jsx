@@ -1,110 +1,143 @@
 import React from "react";
+import { motion } from "framer-motion";
+import { FaGraduationCap, FaBriefcase, FaAward, FaUniversity } from "react-icons/fa";
 
 function About() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { staggerChildren: 0.2, duration: 1, ease: "easeOut" } },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 1, ease: [0.25, 0.46, 0.45, 0.94] } },
+  };
+
   return (
-    <div
-      name="About"
-      className="max-w-screen-2xl container mx-auto px-4 md:px-20 my-20"
-    >
-      <div>
-        <h1 className="text-3xl font-bold mb-5">About</h1>
-        <p>
-        Hi, I'm Pawan Kumar Thakur, a passionate software developer with expertise in web development, C, C++, Java, MySQL, and React. I love solving complex technical problems and building innovative applications that make an impact.
+    <div name="About" className="w-full py-32 px-4 md:px-20 relative z-10">
+      <div className="max-w-screen-xl container mx-auto">
+        <div className="mb-20 text-center flex flex-col items-center">
+          <span className="text-xs font-semibold text-blue-500 dark:text-blue-400 uppercase tracking-widest mb-4 transition-colors duration-500">Background</span>
+          <h1 className="text-4xl md:text-5xl font-semibold text-slate-900 dark:text-white tracking-tight transition-colors duration-500">
+            About Me
+          </h1>
+          <p className="text-slate-600 dark:text-slate-500 mt-4 max-w-2xl font-light transition-colors duration-500">
+            My professional journey, education, and leadership experiences.
+          </p>
+        </div>
 
-Currently, I'm pursuing my B.Tech in Software Engineering at YBN University, Ranchi (2023–2027), where I actively participate in coding challenges and hackathons. I also work as a Software Engineer Intern at Eimples Lab, where I develop interactive ReactJS applications with Material-UI (MUI) and optimize user interfaces for better performance.
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          className="grid grid-cols-1 md:grid-cols-2 gap-8"
+        >
+          {/* Experience Card */}
+          <motion.div 
+            variants={cardVariants} 
+            whileHover={{ y: -5 }}
+            transition={{ duration: 0.3 }}
+            className="premium-glass p-10 rounded-3xl flex flex-col h-full hover:shadow-2xl hover:shadow-blue-500/5 transition-all duration-500"
+          >
+            <h2 className="text-2xl font-semibold mb-10 text-slate-900 dark:text-white flex items-center gap-3 tracking-tight transition-colors duration-500">
+              <FaBriefcase className="text-blue-500 dark:text-blue-400 text-2xl" /> Professional Experience
+            </h2>
+            <div className="relative border-l border-slate-200 dark:border-white/10 ml-3 space-y-12">
+              
+              <div className="relative pl-8 group">
+                <span className="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-blue-500 dark:bg-blue-400 ring-4 ring-slate-50 dark:ring-[#0a0a0a] group-hover:bg-slate-900 dark:group-hover:bg-white transition-colors duration-500"></span>
+                <h3 className="text-lg font-semibold text-slate-900 dark:text-white">.NET Developer Intern</h3>
+                <h4 className="text-blue-500 dark:text-blue-400 font-medium text-sm mt-1">Eimple Labs (Remote)</h4>
+                <p className="text-xs text-slate-500 mb-4 uppercase tracking-wider mt-1">Aug 2024 – Present</p>
+                <ul className="space-y-3 text-slate-600 dark:text-slate-400 font-light text-sm leading-relaxed">
+                  <li>— Developed backend modules using ASP.NET Core and SQL Server.</li>
+                  <li>— Implemented Email Notification and OTP Authentication.</li>
+                  <li>— Integrated Google Analytics and improved backend performance.</li>
+                </ul>
+              </div>
 
-Apart from coding, I'm deeply interested in Brain-Computer Interface (BCI) research, particularly its applications in smart wheelchairs. My research paper, “40 Years of Progress on Brain-Computer Interface Methods for Smart Wheelchair Applications”, reflects my passion for technology-driven accessibility solutions.
+              <div className="relative pl-8 group">
+                <span className="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-slate-400 dark:bg-slate-600 ring-4 ring-slate-50 dark:ring-[#0a0a0a] group-hover:bg-slate-900 dark:group-hover:bg-white transition-colors duration-500"></span>
+                <h3 className="text-lg font-semibold text-slate-900 dark:text-white">React Developer Intern</h3>
+                <h4 className="text-slate-600 dark:text-slate-400 font-medium text-sm mt-1">Eimple Labs (Remote)</h4>
+                <p className="text-xs text-slate-500 mb-4 uppercase tracking-wider mt-1">Jun 2024 – Jul 2025</p>
+                <ul className="space-y-3 text-slate-600 dark:text-slate-400 font-light text-sm leading-relaxed">
+                  <li>— Developed responsive admin dashboard using React.js and Material UI.</li>
+                  <li>— Built reusable UI components and integrated REST APIs.</li>
+                  <li>— Optimized application performance through debugging.</li>
+                </ul>
+              </div>
 
-Beyond academics, I am an active member of the coding club at my university and was part of the organizing team for Design Hackathon 2024. My technical skills, combined with my problem-solving mindset and teamwork abilities, drive me to continuously learn and grow in the field of software development.
-        </p>
-        <br />
-        <h1 className="text-green-600 font-semibold text-xl">
-          Education & Training
-        </h1>
-        <span>
-          [Bachelor of Technology (Software Engineering)],<br/> [YBN University ], <br/>[2023–2027] <br/>[Higher Secondary Education],
-          <br/>[Saraswati Sishu Vidya Mandir],<br/> [2021–2023]<br/> [Secondary School ], <br/>[St. Columbus School],
-          <br/>[2019–2021]
+            </div>
+          </motion.div>
 
+          {/* Education Card */}
+          <motion.div 
+            variants={cardVariants} 
+            whileHover={{ y: -5 }}
+            transition={{ duration: 0.3 }}
+            className="premium-glass p-10 rounded-3xl flex flex-col h-full hover:shadow-2xl hover:shadow-purple-500/5 transition-all duration-500"
+          >
+            <h2 className="text-2xl font-semibold mb-10 text-slate-900 dark:text-white flex items-center gap-3 tracking-tight transition-colors duration-500">
+              <FaUniversity className="text-purple-500 dark:text-purple-400 text-2xl" /> Education
+            </h2>
+            <div className="relative border-l border-slate-200 dark:border-white/10 ml-3 space-y-12">
+              
+              <div className="relative pl-8 group">
+                <span className="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-purple-500 dark:bg-purple-400 ring-4 ring-slate-50 dark:ring-[#0a0a0a] group-hover:bg-slate-900 dark:group-hover:bg-white transition-colors duration-500"></span>
+                <h3 className="text-lg font-semibold text-slate-900 dark:text-white">B.Tech in Software Engineering</h3>
+                <p className="text-purple-500 dark:text-purple-400 font-medium text-sm mt-1">YBN University</p>
+                <p className="text-xs text-slate-500 uppercase tracking-wider mt-2">Ranchi | 2023 – Present</p>
+              </div>
 
-          
- 
+              <div className="relative pl-8 group">
+                <span className="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-slate-400 dark:bg-slate-600 ring-4 ring-slate-50 dark:ring-[#0a0a0a] group-hover:bg-slate-900 dark:group-hover:bg-white transition-colors duration-500"></span>
+                <h3 className="text-lg font-semibold text-slate-900 dark:text-white">Higher Secondary Education</h3>
+                <p className="text-slate-600 dark:text-slate-400 font-medium text-sm mt-1">Saraswati Sishu Vidya Mandir</p>
+                <p className="text-xs text-slate-500 uppercase tracking-wider mt-2">Ranchi | 2021 – 2023</p>
+              </div>
 
- 
- 
+              <div className="relative pl-8 group">
+                <span className="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-slate-400 dark:bg-slate-600 ring-4 ring-slate-50 dark:ring-[#0a0a0a] group-hover:bg-slate-900 dark:group-hover:bg-white transition-colors duration-500"></span>
+                <h3 className="text-lg font-semibold text-slate-900 dark:text-white">Secondary School</h3>
+                <p className="text-slate-600 dark:text-slate-400 font-medium text-sm mt-1">St. Columbus School</p>
+                <p className="text-xs text-slate-500 uppercase tracking-wider mt-2">Ranchi | 2019 – 2021</p>
+              </div>
 
- 
+            </div>
+          </motion.div>
 
+          {/* Activities & Leadership Card */}
+          <motion.div 
+            variants={cardVariants} 
+            whileHover={{ y: -5 }}
+            transition={{ duration: 0.3 }}
+            className="premium-glass p-10 rounded-3xl md:col-span-2 hover:shadow-2xl hover:shadow-emerald-500/5 transition-all duration-500"
+          >
+             <h2 className="text-2xl font-semibold mb-8 text-slate-900 dark:text-white flex items-center justify-center gap-3 tracking-tight transition-colors duration-500">
+              <FaAward className="text-emerald-500 dark:text-emerald-400 text-2xl" /> Leadership & Activities
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+              <div className="bg-slate-100 dark:bg-white/5 p-8 rounded-2xl border border-slate-200 dark:border-white/5 hover:bg-slate-200 dark:hover:bg-white/10 transition-colors duration-500 group">
+                <h3 className="text-emerald-600 dark:text-emerald-400 font-medium text-lg mb-2">Organizing Member</h3>
+                <p className="text-slate-800 dark:text-white font-light text-sm">Design Hackathon 2024</p>
+                <p className="text-slate-500 text-xs mt-2 uppercase tracking-widest">YBN University</p>
+              </div>
+              <div className="bg-slate-100 dark:bg-white/5 p-8 rounded-2xl border border-slate-200 dark:border-white/5 hover:bg-slate-200 dark:hover:bg-white/10 transition-colors duration-500 group">
+                <h3 className="text-blue-600 dark:text-blue-400 font-medium text-lg mb-2">Active Member</h3>
+                <p className="text-slate-800 dark:text-white font-light text-sm">Coding Club</p>
+                <p className="text-slate-500 text-xs mt-2 uppercase tracking-widest">YBN University</p>
+              </div>
+              <div className="bg-slate-100 dark:bg-white/5 p-8 rounded-2xl border border-slate-200 dark:border-white/5 hover:bg-slate-200 dark:hover:bg-white/10 transition-colors duration-500 group">
+                <h3 className="text-purple-600 dark:text-purple-400 font-medium text-lg mb-2">Participant</h3>
+                <p className="text-slate-800 dark:text-white font-light text-sm">National Hackathons</p>
+                <p className="text-slate-500 text-xs mt-2 uppercase tracking-widest">Arka Jain University</p>
+              </div>
+            </div>
+          </motion.div>
 
-        </span>
-        <br />
-        <br />
-        <h1 className="text-green-600 font-semibold text-xl">
-          Skills & Expertise
-        </h1>
-        <span>
-          Proficient in [C, C++, Java, Python (Strong foundation in Object-Oriented Programming)]<br/>
-          Libraries [Pandas, NumPy, Scikit-learn, TensorFlow]<br/>
-          Experienced with [HTML5, CSS3, ReactJS, Node.js, MS-SQL,VS Code, GitHub, IntelliJ, MS-DOS, Code::Blocks, Figma, Jenkins, Git, Postman, Swagger]<br/>
-          Soft Skills [Excellent problem-solving skills Effective communicator and
-            collaborator, Teamwork, Time Management]
-     
-        </span>
-        <br />
-        <br />
-        <h1 className="text-green-600 font-semibold text-xl">
-          Professional Experience
-        </h1>
-        <span>
-       <h1>Software Engineer Intern,</h1>
-       
-       <ol>
-        <li> Eimples Lab, </li>
-        <li>June 2023–Present</li>
-        <li>Designed and developed an intuitive and responsive UI for the Admin Panel.</li>
-        <li>Implemented a structured component-based architecture using ReactJS.</li>
-        <li>Used Material-UI (MUI) library to build interactive UI components and layouts.</li>
-        <li>Worked with React Router and BrowserRouter for smooth navigation between pages.</li>
-        <li>Debugged and optimized code to improve performance and maintainability.</li>
-       </ol>
-       
-
-
-
-
-
-
-
-
-
-
-        </span>
-        <br />
-        <br />
-        <h1 className="text-green-600 font-semibold text-xl">
-          Achievements & Awards
-        </h1>
-        <span>
-          <ol>
-            <li> Ongoing Research Work: Conducting research on “40 Years of Progress on Brain-Computer Interface Methods for Smart Wheelchair Applications.”</li>
-            <li>Hackathon Organizer: Organized Design Hackathon 2024 at YBN University, Ranchi.</li>
-            <li>Leadership & Community Contribution: Active member of the coding club at YBN University, contributing to tech discussions and peer learning.</li>
-       
-          </ol>
-       
-
-
-
-
-        </span>
-        <br />
-        <br />
-        <h1 className="text-green-600 font-semibold text-xl">
-          Mission Statement
-        </h1>
-        <p>
-        As a passionate software developer, I strive to build innovative, user-centric applications that solve real-world problems. With expertise in web development, programming, and data analysis, my mission is to continuously learn, collaborate with dynamic teams, and contribute to cutting-edge technological advancements. Through research, development, and teamwork, I aim to create impactful solutions that enhance accessibility, efficiency, and user experience in the digital landscape.
-        </p>
+        </motion.div>
       </div>
     </div>
   );
