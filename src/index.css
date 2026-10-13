@@ -1,101 +1,203 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   body {
-    @apply bg-slate-50 text-slate-900 antialiased overflow-x-hidden transition-colors duration-500;
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    @apply bg-[#020409] text-slate-100 antialiased overflow-x-hidden;
+    font-family: 'Space Grotesk', 'Inter', system-ui, -apple-system, sans-serif;
   }
-  
+
   .dark body {
-    @apply bg-[#030303] text-[#e2e8f0];
+    @apply bg-[#020409] text-[#e2e8f0];
   }
   
   h1, h2, h3, h4, h5, h6 {
-    @apply font-semibold tracking-tight text-slate-900 dark:text-white transition-colors duration-500;
+    @apply font-semibold tracking-tight;
   }
 }
 
-/* Elegant Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-track {
-  @apply bg-slate-100 dark:bg-[#030303]; 
-}
+/* =========================================
+   SCI-FI CUSTOM SCROLLBAR
+========================================= */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #020409; }
 ::-webkit-scrollbar-thumb {
-  @apply bg-slate-300 dark:bg-[#27272a] rounded-full;
+  background: linear-gradient(180deg, #00d4ff, #7c3aed);
+  border-radius: 3px;
 }
-::-webkit-scrollbar-thumb:hover {
-  @apply bg-slate-400 dark:bg-[#3f3f46]; 
+::-webkit-scrollbar-thumb:hover { background: linear-gradient(180deg, #00ffff, #a855f7); }
+
+/* =========================================
+   3D GRID BACKGROUND
+========================================= */
+.scifi-grid {
+  background-image:
+    linear-gradient(rgba(0, 212, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 212, 255, 0.06) 1px, transparent 1px);
+  background-size: 60px 60px;
+  animation: gridShift 20s linear infinite;
 }
 
-/* 
-  ULTRA-PREMIUM UTILITIES (Linear/Vercel Aesthetic) 
-*/
-
-.premium-glass {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+@keyframes gridShift {
+  0% { background-position: 0 0; }
+  100% { background-position: 60px 60px; }
 }
 
-.dark .premium-glass {
-  background: rgba(20, 20, 20, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
-}
-
-.premium-btn {
-  background: rgba(0, 0, 0, 0.05);
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  color: #0f172a;
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.premium-btn:hover {
-  background: rgba(0, 0, 0, 0.08);
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
-}
-
-.dark .premium-btn {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #ffffff;
-}
-.dark .premium-btn:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
-}
-
-/* Spotlight Effect Utilities */
-.spotlight-card {
+/* =========================================
+   HOLOGRAPHIC GLASS
+========================================= */
+.holo-glass {
+  background: rgba(0, 212, 255, 0.03);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 212, 255, 0.15);
+  box-shadow:
+    0 0 30px rgba(0, 212, 255, 0.05),
+    inset 0 0 30px rgba(0, 212, 255, 0.02);
   position: relative;
-  background: rgba(255, 255, 255, 0.5);
-  border-radius: 1.5rem;
-  overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
-.dark .spotlight-card {
-  background: rgba(20, 20, 20, 0.3);
-  box-shadow: none;
-}
-
-.spotlight-card::before {
-  content: "";
+.holo-glass::before {
+  content: '';
   position: absolute;
   inset: 0;
-  border-radius: 1.5rem;
-  padding: 1px; /* border thickness */
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.08) 0%, transparent 50%, rgba(124, 58, 237, 0.08) 100%);
+  pointer-events: none;
+}
+
+/* =========================================
+   NEON GLOW EFFECTS
+========================================= */
+.neon-cyan {
+  color: #00d4ff;
+  text-shadow: 0 0 10px rgba(0, 212, 255, 0.8), 0 0 30px rgba(0, 212, 255, 0.4), 0 0 60px rgba(0, 212, 255, 0.2);
+}
+
+.neon-purple {
+  color: #a855f7;
+  text-shadow: 0 0 10px rgba(168, 85, 247, 0.8), 0 0 30px rgba(168, 85, 247, 0.4), 0 0 60px rgba(168, 85, 247, 0.2);
+}
+
+.neon-green {
+  color: #00ff88;
+  text-shadow: 0 0 10px rgba(0, 255, 136, 0.8), 0 0 30px rgba(0, 255, 136, 0.4);
+}
+
+.neon-border-cyan {
+  border-color: rgba(0, 212, 255, 0.4);
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.2), inset 0 0 15px rgba(0, 212, 255, 0.05);
+}
+
+.neon-border-purple {
+  border-color: rgba(168, 85, 247, 0.4);
+  box-shadow: 0 0 15px rgba(168, 85, 247, 0.2), inset 0 0 15px rgba(168, 85, 247, 0.05);
+}
+
+/* =========================================
+   CYBER BUTTON
+========================================= */
+.cyber-btn {
+  position: relative;
+  background: transparent;
+  border: 1px solid rgba(0, 212, 255, 0.5);
+  color: #00d4ff;
+  font-family: 'Orbitron', monospace;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  cursor: pointer;
+}
+
+.cyber-btn::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.2), transparent);
+  transition: 0.5s;
+}
+
+.cyber-btn:hover::before { left: 100%; }
+
+.cyber-btn:hover {
+  background: rgba(0, 212, 255, 0.1);
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.4), 0 0 40px rgba(0, 212, 255, 0.2);
+  border-color: rgba(0, 212, 255, 0.8);
+  color: #fff;
+}
+
+.cyber-btn-solid {
+  position: relative;
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(124, 58, 237, 0.2));
+  border: 1px solid rgba(0, 212, 255, 0.5);
+  color: #00d4ff;
+  font-family: 'Orbitron', monospace;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.cyber-btn-solid:hover {
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.35), rgba(124, 58, 237, 0.35));
+  box-shadow: 0 0 25px rgba(0, 212, 255, 0.5), 0 0 50px rgba(0, 212, 255, 0.2);
+  border-color: #00d4ff;
+  color: #fff;
+}
+
+/* =========================================
+   SCANNING LINE ANIMATION
+========================================= */
+.scan-line {
+  position: relative;
+  overflow: hidden;
+}
+
+.scan-line::after {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.8), transparent);
+  animation: scanLine 3s linear infinite;
+}
+
+@keyframes scanLine {
+  0% { top: -2px; }
+  100% { top: 100%; }
+}
+
+/* =========================================
+   3D CARD (Spotlight/Tilt)
+========================================= */
+.scifi-card {
+  position: relative;
+  background: rgba(2, 8, 20, 0.8);
+  border: 1px solid rgba(0, 212, 255, 0.15);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.scifi-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  padding: 1px;
   background: radial-gradient(
-    600px circle at var(--mouse-x) var(--mouse-y),
-    rgba(0, 0, 0, 0.15),
+    600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(0, 212, 255, 0.3),
     transparent 40%
   );
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
@@ -106,25 +208,233 @@
   pointer-events: none;
 }
 
-.dark .spotlight-card::before {
-  background: radial-gradient(
-    600px circle at var(--mouse-x) var(--mouse-y),
-    rgba(255, 255, 255, 0.4),
-    transparent 40%
-  );
+.scifi-card:hover::before { opacity: 1; }
+
+.scifi-card:hover {
+  border-color: rgba(0, 212, 255, 0.3);
+  box-shadow: 0 0 30px rgba(0, 212, 255, 0.1), 0 20px 60px rgba(0, 0, 0, 0.5);
 }
 
-.spotlight-card:hover::before {
-  opacity: 1;
+/* =========================================
+   ORBITRON FONT UTILITY
+========================================= */
+.font-orbitron {
+  font-family: 'Orbitron', monospace;
 }
 
-/* Ambient Aurora Animations */
+/* =========================================
+   GLITCH ANIMATION
+========================================= */
+@keyframes glitch {
+  0%, 100% { clip-path: inset(40% 0 61% 0); transform: translate(-4px, 0); }
+  20% { clip-path: inset(92% 0 1% 0); transform: translate(4px, 0); }
+  40% { clip-path: inset(43% 0 1% 0); transform: translate(-4px, 0); }
+  60% { clip-path: inset(25% 0 58% 0); transform: translate(4px, 0); }
+  80% { clip-path: inset(54% 0 7% 0); transform: translate(-4px, 0); }
+}
+
+.glitch-effect {
+  position: relative;
+}
+
+/* =========================================
+   FLOATING PARTICLE PULSE
+========================================= */
+@keyframes pulsate {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+
+.pulsate {
+  animation: pulsate 2s ease-in-out infinite;
+}
+
+/* =========================================
+   AURORA BACKGROUND (legacy)
+========================================= */
 @keyframes aurora {
   0% { transform: translate(0, 0) scale(1); }
   33% { transform: translate(30px, -50px) scale(1.1); }
   66% { transform: translate(-20px, 20px) scale(0.9); }
   100% { transform: translate(0, 0) scale(1); }
 }
+
 .animate-aurora {
-  animation: aurora 15s ease-in-out infinite;
+  animation: aurora 20s ease-in-out infinite;
+}
+
+/* =========================================
+   DATA STREAM (vertical animated lines)
+========================================= */
+@keyframes dataStream {
+  0% { transform: translateY(-100%); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(100vh); opacity: 0; }
+}
+
+.data-stream {
+  position: fixed;
+  top: 0;
+  width: 1px;
+  height: 80px;
+  background: linear-gradient(180deg, transparent, #00d4ff, transparent);
+  animation: dataStream 4s linear infinite;
+  pointer-events: none;
+}
+
+/* =========================================
+   CORNER ACCENT for cards
+========================================= */
+.corner-accent::before,
+.corner-accent::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-color: rgba(0, 212, 255, 0.6);
+  border-style: solid;
+}
+
+.corner-accent::before {
+  top: 8px; left: 8px;
+  border-width: 2px 0 0 2px;
+}
+
+.corner-accent::after {
+  bottom: 8px; right: 8px;
+  border-width: 0 2px 2px 0;
+}
+
+/* =========================================
+   HEX BADGE
+========================================= */
+.hex-badge {
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+/* =========================================
+   TIMELINE DOT GLOW
+========================================= */
+.timeline-dot {
+  box-shadow: 0 0 10px currentColor, 0 0 20px currentColor;
+  animation: pulsate 2s ease-in-out infinite;
+}
+
+/* =========================================
+   SKILL TAG
+========================================= */
+.skill-tag {
+  position: relative;
+  background: rgba(0, 212, 255, 0.05);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  color: rgba(0, 212, 255, 0.9);
+  transition: all 0.3s ease;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.skill-tag:hover {
+  background: rgba(0, 212, 255, 0.15);
+  border-color: rgba(0, 212, 255, 0.6);
+  color: #00d4ff;
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+/* =========================================
+   SECTION HEADING LINE
+========================================= */
+.section-line {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, #00d4ff, #7c3aed);
+  margin: 0 auto;
+  position: relative;
+}
+
+.section-line::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  background: #00d4ff;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #00d4ff;
+}
+
+/* =========================================
+   FORM INPUT - SCIFI
+========================================= */
+.scifi-input {
+  background: rgba(0, 212, 255, 0.03);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  color: #e2e8f0;
+  transition: all 0.3s ease;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.scifi-input:focus {
+  outline: none;
+  border-color: rgba(0, 212, 255, 0.6);
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.15), inset 0 0 15px rgba(0, 212, 255, 0.03);
+  background: rgba(0, 212, 255, 0.05);
+}
+
+.scifi-input::placeholder { color: rgba(148, 163, 184, 0.4); }
+
+/* =========================================
+   PROFILE RING ANIMATION
+========================================= */
+@keyframes ringRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes ringRotateReverse {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+
+.ring-rotate { animation: ringRotate 8s linear infinite; }
+.ring-rotate-reverse { animation: ringRotateReverse 12s linear infinite; }
+
+/* =========================================
+   STATS COUNTER GLOW
+========================================= */
+.stat-number {
+  font-family: 'Orbitron', monospace;
+  font-weight: 700;
+  background: linear-gradient(135deg, #00d4ff, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* =========================================
+   MARQUEE (skills infinite scroll)  
+========================================= */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.marquee-track {
+  animation: marquee 20s linear infinite;
+  display: flex;
+  width: max-content;
+}
+
+.marquee-track:hover { animation-play-state: paused; }
+
+/* =========================================
+   LIGHT MODE OVERRIDES (keep dark sci-fi)
+========================================= */
+body, html {
+  background-color: #020409 !important;
+  color: #e2e8f0 !important;
 }
